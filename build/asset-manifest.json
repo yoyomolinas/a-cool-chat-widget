@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.js": "./static/js/main.bdb90315.chunk.js",
-    "main.js.map": "./static/js/main.bdb90315.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.62ac2d91.js",
-    "runtime-main.js.map": "./static/js/runtime-main.62ac2d91.js.map",
-    "static/js/2.87956668.chunk.js": "./static/js/2.87956668.chunk.js",
-    "static/js/2.87956668.chunk.js.map": "./static/js/2.87956668.chunk.js.map",
-    "index.html": "./index.html",
-    "static/js/2.87956668.chunk.js.LICENSE.txt": "./static/js/2.87956668.chunk.js.LICENSE.txt",
-    "static/media/arrow-left.75a763f0.svg": "./static/media/arrow-left.75a763f0.svg",
-    "static/media/chat.85c584de.svg": "./static/media/chat.85c584de.svg",
-    "static/media/check-circle.9d588475.svg": "./static/media/check-circle.9d588475.svg",
-    "static/media/circle.8be3b3d5.svg": "./static/media/circle.8be3b3d5.svg",
-    "static/media/donate.8cf52cbe.svg": "./static/media/donate.8cf52cbe.svg",
-    "static/media/gear.7368a626.svg": "./static/media/gear.7368a626.svg",
-    "static/media/heart-alt.b46b1359.svg": "./static/media/heart-alt.b46b1359.svg",
-    "static/media/multiply.a66d4fa5.svg": "./static/media/multiply.a66d4fa5.svg",
-    "static/media/runner.946d2309.svg": "./static/media/runner.946d2309.svg"
+    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/main.39e93480.chunk.js",
+    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/main.39e93480.chunk.js.map",
+    "runtime-main.js": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/runtime-main.cb4d406f.js",
+    "runtime-main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/runtime-main.cb4d406f.js.map",
+    "static/js/2.2139d69e.chunk.js": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/2.2139d69e.chunk.js",
+    "static/js/2.2139d69e.chunk.js.map": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/2.2139d69e.chunk.js.map",
+    "index.html": "https://yoyomolinas.github.io/modern-chat-widget/build/index.html",
+    "static/js/2.2139d69e.chunk.js.LICENSE.txt": "https://yoyomolinas.github.io/modern-chat-widget/build/static/js/2.2139d69e.chunk.js.LICENSE.txt",
+    "static/media/arrow-left.75a763f0.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/arrow-left.75a763f0.svg",
+    "static/media/chat.85c584de.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/chat.85c584de.svg",
+    "static/media/check-circle.9d588475.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/check-circle.9d588475.svg",
+    "static/media/circle.8be3b3d5.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/circle.8be3b3d5.svg",
+    "static/media/donate.8cf52cbe.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/donate.8cf52cbe.svg",
+    "static/media/gear.7368a626.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/gear.7368a626.svg",
+    "static/media/heart-alt.b46b1359.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/heart-alt.b46b1359.svg",
+    "static/media/multiply.a66d4fa5.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/multiply.a66d4fa5.svg",
+    "static/media/runner.946d2309.svg": "https://yoyomolinas.github.io/modern-chat-widget/build/static/media/runner.946d2309.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.62ac2d91.js",
-    "static/js/2.87956668.chunk.js",
-    "static/js/main.bdb90315.chunk.js"
+    "static/js/runtime-main.cb4d406f.js",
+    "static/js/2.2139d69e.chunk.js",
+    "static/js/main.39e93480.chunk.js"
   ]
 }
