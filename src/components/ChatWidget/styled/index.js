@@ -31,7 +31,7 @@ export const Container = styled.div`
   @media only screen and (max-width: 600px) {
     position: absolute;
     width: calc(100vw - 4px);
-    height: calc(${window.innerHeight}px - 4px);
+    height: calc(${window.innerHeight * 0.5}px - 4px);
     top: 0px;
     left: 0px;
     margin: 2px;
