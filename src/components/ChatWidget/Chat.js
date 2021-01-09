@@ -85,9 +85,9 @@ const Chat = (props) => {
             },
           }}
         />
-        <Separator style={{ padding: "4px" }} />
+        <Separator spacing="sp+1" />
         <Row>
-          <Text size="extrasmall">made with &nbsp; </Text>
+          <Text size="extrasmall"> jlksjda made with &nbsp; </Text>
 
           <Icon name="heart" scale="sc-1" />
 
