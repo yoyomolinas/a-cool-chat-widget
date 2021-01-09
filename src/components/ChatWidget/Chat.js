@@ -88,9 +88,7 @@ const Chat = (props) => {
         <Separator spacing="sp+1" />
         <Row>
           <Text size="extrasmall"> jlksjda made with &nbsp; </Text>
-
           <Icon name="heart" scale="sc-1" />
-
           <Text size="extrasmall">&nbsp; by motelciler</Text>
         </Row>
         <Separator spacing="sp+1" />
