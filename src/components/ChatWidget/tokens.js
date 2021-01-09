@@ -1,0 +1,70 @@
+export default {
+  width: { desktop: "400px", mobile: "100%" },
+  height: { desktop: "800px", mobile: "100%" },
+  palette: {
+    none: "rgba(0, 0, 0, 0)",
+    black: "#000000",
+    dark: "#35363A",
+    darkgrey: "#656565",
+    grey: "#ABABAB",
+    lightgrey: "#E5E5E5",
+    white: "#FFFFFF",
+    green: "#8BF9A3",
+    purple: "#A492ED",
+    darkpurple: "#8776CA",
+    darkerpurple: "#5B4B97",
+    blue: "#3876EF",
+  },
+  border: {
+    "bo+0": "0px",
+    "bo+1": "2px",
+    "bo+2": "4px",
+  },
+  radius: {
+    "ra+0": "0px",
+    "ra+1": "8px",
+    "ra+2": "32px",
+  },
+  padding: {
+    "sp+0": "0px",
+    "sp+1": "8px",
+    "sp+2": "16px",
+    "sp+3": "32px",
+  },
+  margin: {
+    "sp+0": "0px",
+    "sp+1": "8px",
+    "sp+2": "16px",
+    "sp+3": "32px",
+  },
+  iconscale: {
+    "sc-2": "14px",
+    "sc-1": "18px",
+    "sc+0": "24px",
+    "sc+1": "32px",
+    "sc+2": "48px",
+  },
+  symbolscale: {
+    "sc+0": "32px",
+  },
+  font: {
+    regular: "Quicksand",
+  },
+  fontsize: {
+    extrasmall: "14px",
+    small: "18px",
+    medium: "22px",
+    large: "28px",
+  },
+  fontweight: {
+    regular: "medium",
+    bold: "bold",
+  },
+  fontlineheight: {
+    extrasmall: "17px",
+    small: "22px",
+    medium: "27px",
+    large: "35px",
+  },
+  screens: { welcome: 1, chat: 2, settings: 3 },
+};

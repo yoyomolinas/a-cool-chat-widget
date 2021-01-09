@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./GlobalStyle";
+import Demo from "./components/Demo";
+import ChatWidget from "./components/ChatWidget";
 
-function App() {
+import PubNub from "pubnub";
+import { PubNubProvider } from "pubnub-react";
+
+import { v4 as uuid } from "uuid";
+
+import config from "./Config";
+
+const pubnub = new PubNub({
+  publishKey: config.pubnub.publishKey,
+  subscribeKey: config.pubnub.subscribeKey,
+  uuid: uuid(),
+});
+
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PubNubProvider client={pubnub}>
+      <GlobalStyle />
+      <ChatWidget icon={config.icon} channel={config.pubnub.channel} />
+    </PubNubProvider>
   );
-}
-
-export default App;
+};
