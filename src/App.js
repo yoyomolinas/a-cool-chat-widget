@@ -19,6 +19,7 @@ export default () => {
   return (
     <PubNubProvider client={pubnub}>
       <GlobalStyle />
+
       <ChatWidget icon={config.icon} channel={config.pubnub.channel} />
     </PubNubProvider>
   );
