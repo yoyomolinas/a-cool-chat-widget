@@ -93,6 +93,7 @@ const Chat = (props) => {
 
           <Text size="extrasmall">&nbsp; by motelciler</Text>
         </Row>
+        <Separator spacing="sp+1" />
       </BottomBar>
     </>
   );
