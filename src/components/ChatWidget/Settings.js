@@ -66,14 +66,14 @@ const Settings = (props) => {
         <Separator spacing="sp+1" />
         <GridSelectImage
           images={[
-            "profiles/profiles-1.png",
-            "profiles/profiles-2.png",
-            "profiles/profiles-3.png",
-            "profiles/profiles-4.png",
-            "profiles/profiles-1.png",
-            "profiles/profiles-2.png",
-            "profiles/profiles-3.png",
-            "profiles/profiles-4.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-1.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-2.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-3.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-4.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-1.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-2.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-3.png",
+            process.env.PUBLIC_URL + "/profiles/profiles-4.png",
           ]}
           action={
             inputsValid.avatar

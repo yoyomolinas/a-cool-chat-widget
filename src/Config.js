@@ -5,4 +5,5 @@ export default {
   },
   channel: "awesome-channel-radyo-motel",
   icon: "chat", // icon displayed when chat is collapsed
+  iconcolor: "white", // icon displayed when chat is collapsed
 };

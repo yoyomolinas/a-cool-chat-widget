@@ -1,19 +1,17 @@
-import React, { useRef, useEffect, useState, Fragment } from "react";
-import { usePubNub } from "pubnub-react";
+import React, { useRef, useEffect, Fragment } from "react";
+
 import {
-  TopBar,
   BottomBar,
   ChatContainer,
   ChatContainerChild,
   TextMessage,
-  Button,
   Icon,
   Text,
   TextInput,
   Separator,
   Row,
 } from "./styled";
-import tokens from "./tokens";
+
 import { useChatWidget } from "./index";
 
 const Chat = (props) => {
