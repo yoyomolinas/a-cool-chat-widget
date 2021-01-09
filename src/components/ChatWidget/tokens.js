@@ -49,6 +49,8 @@ export default {
   },
   font: {
     regular: "Quicksand",
+    // regular: "Bodoni Moda",
+    // regular: "Inter",
   },
   fontsize: {
     extrasmall: "14px",
