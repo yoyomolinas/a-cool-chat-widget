@@ -405,6 +405,7 @@ export const GridSelectImage = (props) => {
 export const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
@@ -418,6 +419,10 @@ export const ChatContainer = styled.div`
   overflow-y: scroll;
 
   // border: 2px solid red;
+`;
+
+export const ChatContainerChild = styled.div`
+  width: 100%;
 `;
 
 const MessageContainer = styled.div`

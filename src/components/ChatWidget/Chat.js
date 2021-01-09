@@ -4,6 +4,7 @@ import {
   TopBar,
   BottomBar,
   ChatContainer,
+  ChatContainerChild,
   TextMessage,
   Button,
   Icon,
@@ -35,24 +36,27 @@ const Chat = (props) => {
     <>
       <Separator palette="darkgrey" border="bo+1" />
       <ChatContainer ref={listRef}>
-        <Separator spacing="sp+2" />
-        {chatWidget.messages.map((m, i) => {
-          let onlybody = false;
-          let noseparator = false;
-          if (i > 0) {
-            onlybody = chatWidget.messages[i - 1].sender.name === m.sender.name;
-          }
-          if (i < chatWidget.messages.length - 1) {
-            noseparator =
-              chatWidget.messages[i + 1].sender.name === m.sender.name;
-          }
-          return (
-            <Fragment key={`message-${i}`}>
-              <TextMessage message={m} onlybody={onlybody}></TextMessage>
-              {!noseparator && <Separator spacing="sp+2" />}
-            </Fragment>
-          );
-        })}
+        <ChatContainerChild>
+          <Separator spacing="sp+2" />
+          {chatWidget.messages.map((m, i) => {
+            let onlybody = false;
+            let noseparator = false;
+            if (i > 0) {
+              onlybody =
+                chatWidget.messages[i - 1].sender.name === m.sender.name;
+            }
+            if (i < chatWidget.messages.length - 1) {
+              noseparator =
+                chatWidget.messages[i + 1].sender.name === m.sender.name;
+            }
+            return (
+              <Fragment key={`message-${i}`}>
+                <TextMessage message={m} onlybody={onlybody}></TextMessage>
+                {!noseparator && <Separator spacing="sp+2" />}
+              </Fragment>
+            );
+          })}
+        </ChatContainerChild>
       </ChatContainer>
       <Separator palette="darkgrey" border="bo+1" />
 
@@ -74,6 +78,7 @@ const Chat = (props) => {
               text: val,
               createdAt: new Date(),
             });
+            scrollToEnd();
           }}
           action={{
             icon: "donate",
