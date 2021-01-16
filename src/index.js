@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import config from "./Config";
 
 // Bind to <div> element in host page.
 // Note that the id is ciritical and the host
@@ -9,5 +10,5 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById("chat-widget-radyo-motel")
+  document.getElementById(config.elementId)
 );

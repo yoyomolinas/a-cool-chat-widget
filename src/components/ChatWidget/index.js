@@ -22,11 +22,7 @@ import tokens from "./tokens";
 const Context = createContext();
 
 export const ChatWidget = (props) => {
-  const {
-    channel = "awesome-channel",
-    icon = "chat",
-    iconcolor = "black",
-  } = props;
+  const { channel = "test-123", icon = "chat", iconcolor = "black" } = props;
   const [collapsed, setCollapsed] = useState(true);
   const [screen, setScreen] = useState(tokens.screens.welcome);
   const [username, setUsername] = useState("");

@@ -1,5 +1,5 @@
 import GlobalStyle from "./GlobalStyle";
-import Demo from "./components/Demo";
+
 import ChatWidget from "./components/ChatWidget";
 
 import PubNub from "pubnub";
@@ -16,14 +16,20 @@ const pubnub = new PubNub({
 });
 
 export default () => {
+  const iconcolor = document
+    .getElementById(config.elementId)
+    .getAttribute("$iconcolor");
+
+  const channel = document
+    .getElementById(config.elementId)
+    .getAttribute("$channel");
+
+  console.log(channel);
+
   return (
     <PubNubProvider client={pubnub}>
       <GlobalStyle />
-      <ChatWidget
-        icon={config.icon}
-        iconcolor={config.iconcolor}
-        channel={config.pubnub.channel}
-      />
+      <ChatWidget icon={config.icon} iconcolor={iconcolor} channel={channel} />
     </PubNubProvider>
   );
 };
