@@ -38,6 +38,21 @@ export const ChatWidget = (props) => {
     addMessage((messages) => [...messages, msg]);
   };
   useEffect(() => {
+    // fetch messages
+    // start, end, count are optional
+
+    pubnub.fetchMessages(
+      {
+        channels,
+        end: 0,
+        count: 100,
+      },
+      (status, response) => {
+        const storedMessages = response.channels[channel].map((e) => e.message);
+        addMessage((messages) => [...storedMessages, ...messages]);
+      }
+    );
+
     pubnub.addListener({ message: handleMessage });
     pubnub.subscribe({ channels });
   }, [pubnub, channels]);

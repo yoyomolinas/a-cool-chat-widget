@@ -27,12 +27,14 @@ export default {
   },
   padding: {
     "sp+0": "0px",
+    "sp+0.5": "6px",
     "sp+1": "8px",
     "sp+2": "16px",
     "sp+3": "32px",
   },
   margin: {
     "sp+0": "0px",
+    "sp+0.5": "6px",
     "sp+1": "8px",
     "sp+2": "16px",
     "sp+3": "32px",

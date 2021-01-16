@@ -521,7 +521,7 @@ export const TextMessage = (props) => {
           <MessageSenderName>{sender.name}</MessageSenderName>
         </MessageSenderContainer>
       )}
-      <Separator spacing="sp+1" />
+      <Separator spacing="sp+0.5" />
       <MessageBodyContainer>
         <MessageText>{text}</MessageText>
         <MessageTime>{time}</MessageTime>

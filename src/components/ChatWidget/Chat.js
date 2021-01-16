@@ -35,7 +35,7 @@ const Chat = (props) => {
       <Separator palette="darkgrey" border="bo+1" />
       <ChatContainer ref={listRef}>
         <ChatContainerChild>
-          <Separator spacing="sp+2" />
+          <Separator spacing="sp+1" />
           {chatWidget.messages.map((m, i) => {
             let onlybody = false;
             let noseparator = false;
@@ -50,7 +50,7 @@ const Chat = (props) => {
             return (
               <Fragment key={`message-${i}`}>
                 <TextMessage message={m} onlybody={onlybody}></TextMessage>
-                {!noseparator && <Separator spacing="sp+2" />}
+                {!noseparator && <Separator spacing="sp+1" />}
               </Fragment>
             );
           })}
