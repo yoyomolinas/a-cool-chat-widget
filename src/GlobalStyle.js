@@ -14,7 +14,7 @@ export default createGlobalStyle`
     }
 
     input {
-        outline: none;
+        outline: 0;
     }
   
 `;

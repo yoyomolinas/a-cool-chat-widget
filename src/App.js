@@ -14,6 +14,8 @@ const pubnub = new PubNub({
   publishKey: config.pubnub.publishKey,
   subscribeKey: config.pubnub.subscribeKey,
   uuid: userId,
+  heartbeatInterval: 5,
+  presenceTimeout: 1,
 });
 
 export default () => {
@@ -24,8 +26,6 @@ export default () => {
   const channel = document
     .getElementById(config.elementId)
     .getAttribute("$channel");
-
-  console.log(channel);
 
   return (
     <PubNubProvider client={pubnub}>

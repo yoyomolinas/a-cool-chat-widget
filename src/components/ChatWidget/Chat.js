@@ -79,16 +79,20 @@ const Chat = (props) => {
           onSubmit={(val) => {
             // publish message
             chatWidget.sendMessage({
-              type: "text",
-              sender: {
-                id: chatWidget.userId,
-                name: chatWidget.username,
-                image: chatWidget.avatar,
+              message: {
+                type: "text",
+                sender: {
+                  id: chatWidget.userId,
+                  name: chatWidget.username,
+                  image: chatWidget.avatar,
+                },
+                text: val,
+                createdAt: new Date(),
               },
-              text: val,
-              createdAt: new Date(),
+              callback: () => {
+                scrollToEnd();
+              },
             });
-            scrollToEnd();
           }}
           action={{
             icon: "donate",

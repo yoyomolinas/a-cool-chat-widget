@@ -28,43 +28,36 @@ export const ChatWidget = (props) => {
     icon = "chat",
     iconcolor = "black",
   } = props;
-  const [collapsed, setCollapsed] = useState(true);
-  const [screen, setScreen] = useState(tokens.screens.welcome);
-  const [username, setUsername] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [collapsed, setCollapsed] = useState(false);
+  const [screen, setScreen] = useState(tokens.screens.chat); // TODO change to welcome
+  const [username, setUsername] = useState("test-123"); // TODO remave
+  const [avatar, setAvatar] = useState("/profiles/profiles-1.png"); // TODO remave
   const [personTyping, setPersonTyping] = useState(null);
+
   const whoIsTyping = useRef([]);
+  const whoIsHere = useRef([]);
 
   // pubnub
   const pubnub = usePubNub();
   const [channels, setChannels] = useState([channel]);
   const [messages, addMessage] = useState([]);
   const [message, setMessage] = useState("");
-  const senders = useRef({}); // id->name
 
-  const addSender = (sender) => {
-    senders.current = { ...senders.current, [sender.id]: sender };
-  };
   const handleMessage = (event) => {
     const msg = event.message;
     addMessage((messages) => [...messages, msg]);
-
-    // add to senders
-    addSender(msg.sender);
   };
   const handleSignal = (event) => {
     // return if typing user is unknown
-    // console.log(`SIGNAL recieved! Current senders:`);
-    // console.log(senders.current);
-    if (!Object.keys(senders.current).includes(event.publisher)) return;
+    if (!whoIsHere.current.map((o) => o.id).includes(event.publisher)) return;
     const isTyping =
       event.message === "typing_on"
         ? true
         : event.message === "typing_off"
         ? false
         : null;
-
     const senderId = event.publisher;
+
     // console.log(`is typing ${isTyping} ${senderId}`);
     if (!isTyping) {
       // console.log("NOT TYPING SIGNAL RECIEVED");
@@ -82,11 +75,26 @@ export const ChatWidget = (props) => {
     else {
       for (const id of whoIsTyping.current) {
         if (userId !== id) {
-          setPersonTyping(senders.current[id].name);
+          const typer = whoIsHere.current.find((e) => e.id === id);
+          setPersonTyping(typer.username);
           break;
         }
       }
     }
+  };
+  const handlePresence = (event) => {
+    // lets get to know the people here.
+    pubnub
+      .hereNow({
+        channels: [channel],
+        includeUUIDs: true,
+        includeState: true,
+      })
+      .then((response) => {
+        whoIsHere.current = response.channels[channel].occupants
+          .map((o) => o.state)
+          .filter((o) => o !== undefined);
+      });
   };
   useEffect(() => {
     // fetch messages
@@ -96,68 +104,55 @@ export const ChatWidget = (props) => {
       {
         channels,
         end: 0,
-        count: 100,
+        count: 10,
       },
       (status, response) => {
         if (!response) return;
 
         const storedMessages = response.channels[channel].map((e) => e.message);
         addMessage((messages) => [...storedMessages, ...messages]);
-        // add senders
-        for (const msg of storedMessages) {
-          addSender(msg.sender);
-        }
       }
     );
 
     pubnub.addListener({ message: handleMessage });
     pubnub.addListener({ signal: handleSignal });
-    pubnub.subscribe({ channels });
+    pubnub.addListener({ presence: handlePresence });
+    pubnub.subscribe({ channels, withPresence: true });
   }, [pubnub, channels]);
 
-  const sendMessage = (msg) => {
-    if (msg) {
-      pubnub.publish({ channel: channels[0], message: msg }).then(() => {
+  const sendMessage = ({ message = {}, callback = () => {} }) => {
+    if (message) {
+      pubnub.publish({ channel: channels[0], message }).then(() => {
         sendTypingSignal(false);
         setMessage("");
-        scrollToEnd();
+        callback();
       });
     }
   };
 
   const sendTypingSignal = (isTyping = true) => {
-    pubnub.signal(
-      {
+    pubnub
+      .signal({
         channel,
         message: isTyping ? "typing_on" : "typing_off",
-      },
-      (status, response) => {
-        // handle status, response
-      }
-    );
+      })
+      .then((response) => {});
   };
   // pubnub
 
   const isUsernameValid = (name) => {
-    const i = messages.findIndex((m) => {
-      return m.sender.name === name;
+    const i = whoIsHere.current.findIndex((occupant) => {
+      return occupant.name === name;
     });
-
     return name !== "" && (name === username || i === -1);
   };
 
-  const listRef = useRef(null);
-  const scrollToEnd = (el = listRef.current) => {
-    if (el) {
-      setTimeout(() => {
-        el.scrollTop = el.scrollHeight + 100;
-      }, 200);
-    }
-  };
-
   useEffect(() => {
-    scrollToEnd();
-  }, []);
+    pubnub.setState({
+      state: { username, id: userId, image: avatar },
+      channels: [channel],
+    });
+  }, [username, avatar, userId]);
 
   return (
     <Context.Provider
@@ -179,7 +174,6 @@ export const ChatWidget = (props) => {
         whoIsTyping,
         personTyping,
         sendTypingSignal,
-        addSender,
       }}
     >
       {!collapsed && (
