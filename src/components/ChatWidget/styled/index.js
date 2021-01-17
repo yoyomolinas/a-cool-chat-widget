@@ -34,12 +34,10 @@ const flash = keyframes`
 `;
 
 export const FadeIn = styled.div`
-  // opacity: 0;
   animation: ${fadeIn} 0.2s linear;
 `;
 
 export const Flash = styled.div`
-  // opacity: 0;
   animation: ${flash} 1s linear infinite;
 `;
 
@@ -84,7 +82,12 @@ export const Container = styled.div`
   align-items: center;
 
   // color
-  background: ${(props) => tokens.palette[props.palette]};
+  background-image: linear-gradient(
+      rgba(20, 20, 20, 0.75),
+      rgba(20, 20, 20, 0.95)
+    ),
+    url("https://yoyomolinas.github.io/modern-chat-widget/public/backgrounds/bg-1.png");
+  // background: ${(props) => tokens.palette[props.palette]};
   box-shadow: 0px 0px 12px 6px rgba(0, 0, 0, 0.4);
 `;
 
