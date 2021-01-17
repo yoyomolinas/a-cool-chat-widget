@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.js": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/main.3c8f4548.chunk.js",
-    "main.js.map": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/main.3c8f4548.chunk.js.map",
-    "runtime-main.js": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/runtime-main.499fc1f3.js",
-    "runtime-main.js.map": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/runtime-main.499fc1f3.js.map",
-    "static/js/2.9673d8aa.chunk.js": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/2.9673d8aa.chunk.js",
-    "static/js/2.9673d8aa.chunk.js.map": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/2.9673d8aa.chunk.js.map",
-    "index.html": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/index.html",
-    "static/js/2.9673d8aa.chunk.js.LICENSE.txt": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/js/2.9673d8aa.chunk.js.LICENSE.txt",
-    "static/media/arrow-left.75a763f0.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/arrow-left.75a763f0.svg",
-    "static/media/chat.85c584de.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/chat.85c584de.svg",
-    "static/media/check-circle.9d588475.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/check-circle.9d588475.svg",
-    "static/media/circle.8be3b3d5.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/circle.8be3b3d5.svg",
-    "static/media/donate.8cf52cbe.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/donate.8cf52cbe.svg",
-    "static/media/gear.7368a626.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/gear.7368a626.svg",
-    "static/media/heart-alt.b46b1359.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/heart-alt.b46b1359.svg",
-    "static/media/multiply.a66d4fa5.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/multiply.a66d4fa5.svg",
-    "static/media/runner.946d2309.svg": "https://github.com/yoyomolinas/modern-chat-widget/tree/main/public/static/media/runner.946d2309.svg"
+    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.e62752dd.chunk.js",
+    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.e62752dd.chunk.js.map",
+    "runtime-main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js",
+    "runtime-main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js.map",
+    "static/js/2.5d9e10cb.chunk.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js",
+    "static/js/2.5d9e10cb.chunk.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js.map",
+    "index.html": "https://yoyomolinas.github.io/modern-chat-widget/public/index.html",
+    "static/js/2.5d9e10cb.chunk.js.LICENSE.txt": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js.LICENSE.txt",
+    "static/media/arrow-left.75a763f0.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/arrow-left.75a763f0.svg",
+    "static/media/chat.85c584de.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat.85c584de.svg",
+    "static/media/check-circle.9d588475.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/check-circle.9d588475.svg",
+    "static/media/circle.8be3b3d5.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/circle.8be3b3d5.svg",
+    "static/media/donate.8cf52cbe.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/donate.8cf52cbe.svg",
+    "static/media/gear.7368a626.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/gear.7368a626.svg",
+    "static/media/heart-alt.b46b1359.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/heart-alt.b46b1359.svg",
+    "static/media/multiply.a66d4fa5.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/multiply.a66d4fa5.svg",
+    "static/media/runner.946d2309.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/runner.946d2309.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.499fc1f3.js",
-    "static/js/2.9673d8aa.chunk.js",
-    "static/js/main.3c8f4548.chunk.js"
+    "static/js/runtime-main.b4c2b0f7.js",
+    "static/js/2.5d9e10cb.chunk.js",
+    "static/js/main.e62752dd.chunk.js"
   ]
 }
