@@ -83,7 +83,7 @@ export const Container = styled.div`
 
   // color
   background-image: linear-gradient(rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 1)),
-    url("https://yoyomolinas.github.io/modern-chat-widget/public/backgrounds/bg-2.png");
+    url("${process.env.PUBLIC_URL}/backgrounds/bg-2.png");
   background-repeat: no-repeat;
   background-size: 200% 200%;
   // background: ${(props) => tokens.palette[props.palette]};

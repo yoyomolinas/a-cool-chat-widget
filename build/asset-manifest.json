@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.e62752dd.chunk.js",
-    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.e62752dd.chunk.js.map",
+    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.bde0451d.chunk.js",
+    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.bde0451d.chunk.js.map",
     "runtime-main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js",
     "runtime-main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js.map",
-    "static/js/2.5d9e10cb.chunk.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js",
-    "static/js/2.5d9e10cb.chunk.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js.map",
+    "static/js/2.bcd7f3e2.chunk.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.bcd7f3e2.chunk.js",
+    "static/js/2.bcd7f3e2.chunk.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.bcd7f3e2.chunk.js.map",
     "index.html": "https://yoyomolinas.github.io/modern-chat-widget/public/index.html",
-    "static/js/2.5d9e10cb.chunk.js.LICENSE.txt": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.5d9e10cb.chunk.js.LICENSE.txt",
+    "static/js/2.bcd7f3e2.chunk.js.LICENSE.txt": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.bcd7f3e2.chunk.js.LICENSE.txt",
     "static/media/arrow-left.75a763f0.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/arrow-left.75a763f0.svg",
+    "static/media/chat-notified.d6bedd35.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat-notified.d6bedd35.svg",
     "static/media/chat.85c584de.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat.85c584de.svg",
     "static/media/check-circle.9d588475.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/check-circle.9d588475.svg",
     "static/media/circle.8be3b3d5.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/circle.8be3b3d5.svg",
@@ -20,7 +21,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b4c2b0f7.js",
-    "static/js/2.5d9e10cb.chunk.js",
-    "static/js/main.e62752dd.chunk.js"
+    "static/js/2.bcd7f3e2.chunk.js",
+    "static/js/main.bde0451d.chunk.js"
   ]
 }
