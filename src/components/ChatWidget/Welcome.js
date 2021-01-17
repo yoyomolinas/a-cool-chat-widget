@@ -112,6 +112,11 @@ const Welcome = (props) => {
               ? (e) => {
                   chatWidget.setAvatar(avatar);
                   chatWidget.setUsername(username);
+                  chatWidget.addSender({
+                    id: chatWidget.userId,
+                    name: username,
+                    avatar,
+                  });
                   chatWidget.setScreen(tokens.screens.chat);
                 }
               : null

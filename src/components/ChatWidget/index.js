@@ -22,20 +22,71 @@ import tokens from "./tokens";
 const Context = createContext();
 
 export const ChatWidget = (props) => {
-  const { channel = "test-123", icon = "chat", iconcolor = "black" } = props;
+  const {
+    userId,
+    channel = "test-123",
+    icon = "chat",
+    iconcolor = "black",
+  } = props;
   const [collapsed, setCollapsed] = useState(true);
   const [screen, setScreen] = useState(tokens.screens.welcome);
   const [username, setUsername] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [personTyping, setPersonTyping] = useState(null);
+  const whoIsTyping = useRef([]);
 
   // pubnub
   const pubnub = usePubNub();
   const [channels, setChannels] = useState([channel]);
   const [messages, addMessage] = useState([]);
   const [message, setMessage] = useState("");
+  const senders = useRef({}); // id->name
+
+  const addSender = (sender) => {
+    senders.current = { ...senders.current, [sender.id]: sender };
+  };
   const handleMessage = (event) => {
     const msg = event.message;
     addMessage((messages) => [...messages, msg]);
+
+    // add to senders
+    addSender(msg.sender);
+  };
+  const handleSignal = (event) => {
+    // return if typing user is unknown
+    // console.log(`SIGNAL recieved! Current senders:`);
+    // console.log(senders.current);
+    if (!Object.keys(senders.current).includes(event.publisher)) return;
+    const isTyping =
+      event.message === "typing_on"
+        ? true
+        : event.message === "typing_off"
+        ? false
+        : null;
+
+    const senderId = event.publisher;
+    // console.log(`is typing ${isTyping} ${senderId}`);
+    if (!isTyping) {
+      // console.log("NOT TYPING SIGNAL RECIEVED");
+      const i = whoIsTyping.current.indexOf(senderId);
+      if (i > -1) {
+        whoIsTyping.current.splice(i, 1);
+      }
+    } else if (isTyping) {
+      const i = whoIsTyping.current.indexOf(senderId);
+      if (i === -1) whoIsTyping.current = [...whoIsTyping.current, senderId];
+    }
+
+    // Set person typing
+    if (whoIsTyping.current.length === 0) setPersonTyping(null);
+    else {
+      for (const id of whoIsTyping.current) {
+        if (userId !== id) {
+          setPersonTyping(senders.current[id].name);
+          break;
+        }
+      }
+    }
   };
   useEffect(() => {
     // fetch messages
@@ -48,22 +99,42 @@ export const ChatWidget = (props) => {
         count: 100,
       },
       (status, response) => {
+        if (!response) return;
+
         const storedMessages = response.channels[channel].map((e) => e.message);
         addMessage((messages) => [...storedMessages, ...messages]);
+        // add senders
+        for (const msg of storedMessages) {
+          addSender(msg.sender);
+        }
       }
     );
 
     pubnub.addListener({ message: handleMessage });
+    pubnub.addListener({ signal: handleSignal });
     pubnub.subscribe({ channels });
   }, [pubnub, channels]);
 
   const sendMessage = (msg) => {
     if (msg) {
       pubnub.publish({ channel: channels[0], message: msg }).then(() => {
+        sendTypingSignal(false);
         setMessage("");
         scrollToEnd();
       });
     }
+  };
+
+  const sendTypingSignal = (isTyping = true) => {
+    pubnub.signal(
+      {
+        channel,
+        message: isTyping ? "typing_on" : "typing_off",
+      },
+      (status, response) => {
+        // handle status, response
+      }
+    );
   };
   // pubnub
 
@@ -72,7 +143,7 @@ export const ChatWidget = (props) => {
       return m.sender.name === name;
     });
 
-    return name !== "" && (name == username || i === -1);
+    return name !== "" && (name === username || i === -1);
   };
 
   const listRef = useRef(null);
@@ -91,6 +162,7 @@ export const ChatWidget = (props) => {
   return (
     <Context.Provider
       value={{
+        userId,
         username,
         setUsername,
         avatar,
@@ -104,6 +176,10 @@ export const ChatWidget = (props) => {
         messages,
         sendMessage,
         isUsernameValid,
+        whoIsTyping,
+        personTyping,
+        sendTypingSignal,
+        addSender,
       }}
     >
       {!collapsed && (
@@ -143,32 +219,9 @@ export const ChatWidget = (props) => {
             </Button>
           </TopBar>
 
-          {screen === tokens.screens.chat && (
-            <Chat
-              username={username}
-              avatar={avatar}
-              setScreen={setScreen}
-              setCollapsed={setCollapsed}
-            />
-          )}
-          {screen === tokens.screens.welcome && (
-            <Welcome
-              setUsername={setUsername}
-              setAvatar={setAvatar}
-              setScreen={setScreen}
-              setCollapsed={setCollapsed}
-            />
-          )}
-          {screen === tokens.screens.settings && (
-            <Settings
-              username={username}
-              avatar={avatar}
-              setUsername={setUsername}
-              setAvatar={setAvatar}
-              setScreen={setScreen}
-              setCollapsed={setCollapsed}
-            />
-          )}
+          {screen === tokens.screens.chat && <Chat />}
+          {screen === tokens.screens.welcome && <Welcome />}
+          {screen === tokens.screens.settings && <Settings />}
         </Container>
       )}
       {collapsed && (

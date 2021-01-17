@@ -1,6 +1,8 @@
-import React, { useRef, useEffect, Fragment } from "react";
+import React, { useState, useRef, useEffect, Fragment } from "react";
 
 import {
+  Flash,
+  FadeIn,
   BottomBar,
   ChatContainer,
   ChatContainerChild,
@@ -49,13 +51,16 @@ const Chat = (props) => {
             }
             return (
               <Fragment key={`message-${i}`}>
-                <TextMessage message={m} onlybody={onlybody}></TextMessage>
-                {!noseparator && <Separator spacing="sp+1" />}
+                <FadeIn>
+                  <TextMessage message={m} onlybody={onlybody}></TextMessage>
+                  {!noseparator && <Separator spacing="sp+1" />}
+                </FadeIn>
               </Fragment>
             );
           })}
         </ChatContainerChild>
       </ChatContainer>
+
       <Separator palette="darkgrey" border="bo+1" />
 
       <BottomBar>
@@ -64,12 +69,19 @@ const Chat = (props) => {
           value={chatWidget.message}
           onChange={(event) => {
             chatWidget.setMessage(event.target.value);
+            // send typing signal if not in whoIsTypingList
+            if (event.target.value === "") chatWidget.sendTypingSignal(false);
+            else if (
+              !chatWidget.whoIsTyping.current.includes(chatWidget.userId)
+            )
+              chatWidget.sendTypingSignal(true);
           }}
           onSubmit={(val) => {
             // publish message
             chatWidget.sendMessage({
               type: "text",
               sender: {
+                id: chatWidget.userId,
                 name: chatWidget.username,
                 image: chatWidget.avatar,
               },
@@ -89,10 +101,27 @@ const Chat = (props) => {
           }}
         />
         <Separator spacing="sp+1" />
+
         <Row>
-          <Text size="extrasmall"> jlksjda made with &nbsp; </Text>
-          <Icon name="heart" scale="sc-1" />
-          <Text size="extrasmall">&nbsp; by motelciler</Text>
+          {chatWidget.personTyping && (
+            <FadeIn>
+              <Text
+                font="regular"
+                size="extrasmall"
+                palette="grey"
+                align="center"
+              >
+                <Flash>{chatWidget.personTyping} is typing...</Flash>
+              </Text>
+            </FadeIn>
+          )}
+          {!chatWidget.personTyping && (
+            <FadeIn>
+              <Text size="extrasmall"> made with &nbsp; </Text>
+              <Icon name="heart" scale="sc-1" />
+              <Text size="extrasmall">&nbsp; by motelciler</Text>
+            </FadeIn>
+          )}
         </Row>
         <Separator spacing="sp+1" />
       </BottomBar>

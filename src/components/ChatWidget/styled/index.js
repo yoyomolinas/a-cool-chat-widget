@@ -4,6 +4,45 @@ import tokens from "../tokens";
 import icons from "../../../icons";
 import day from "../../../utils/day";
 
+const fadeIn = keyframes`
+  from {
+    transform: scale(.85);
+    opacity: 0;
+  }
+
+  to: {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
+
+const flash = keyframes`
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  
+`;
+
+export const FadeIn = styled.div`
+  // opacity: 0;
+  animation: ${fadeIn} 0.2s linear;
+`;
+
+export const Flash = styled.div`
+  // opacity: 0;
+  animation: ${flash} 1s linear infinite;
+`;
+
 export const CollapsedChatContainer = styled.div`
   z-index: 99999;
   position: fixed;
@@ -207,6 +246,7 @@ export const Text = styled.text`
   font-size: ${(props) => tokens.fontsize[props.size]};
   line-height: ${(props) => tokens.fontlineheight[props.size]};
   color: ${(props) => tokens.palette[props.palette]};
+  text-align: ${(props) => props.align};
 `;
 
 Text.defaultProps = {
@@ -214,6 +254,7 @@ Text.defaultProps = {
   size: "small",
   weight: "regular",
   palette: "white",
+  align: "left",
 };
 
 export const StyledTextInput = styled.input`

@@ -9,10 +9,11 @@ import { v4 as uuid } from "uuid";
 
 import config from "./Config";
 
+const userId = uuid();
 const pubnub = new PubNub({
   publishKey: config.pubnub.publishKey,
   subscribeKey: config.pubnub.subscribeKey,
-  uuid: uuid(),
+  uuid: userId,
 });
 
 export default () => {
@@ -29,7 +30,12 @@ export default () => {
   return (
     <PubNubProvider client={pubnub}>
       <GlobalStyle />
-      <ChatWidget icon={config.icon} iconcolor={iconcolor} channel={channel} />
+      <ChatWidget
+        userId={userId}
+        icon={config.icon}
+        iconcolor={iconcolor}
+        channel={channel}
+      />
     </PubNubProvider>
   );
 };

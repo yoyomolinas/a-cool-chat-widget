@@ -114,6 +114,11 @@ const Settings = (props) => {
                   chatWidget.setAvatar(avatar);
                   chatWidget.setUsername(username);
                   chatWidget.setScreen(tokens.screens.chat);
+                  chatWidget.addSender({
+                    id: chatWidget.userId,
+                    name: username,
+                    avatar,
+                  });
                 }
               : null
           }
