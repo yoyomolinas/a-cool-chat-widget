@@ -42,6 +42,7 @@ export const ChatWidget = (props) => {
       ? tokens.screens.welcome
       : tokens.screens.chat
   );
+
   const [personTyping, setPersonTyping] = useState(null);
 
   const whoIsTyping = useRef([]);
@@ -159,7 +160,6 @@ export const ChatWidget = (props) => {
 
   useEffect(() => {
     // things to do when settings change
-
     pubnub.setState({
       state: { username, id: userId, image: avatar, collapsed },
       channels: [channel],
@@ -219,7 +219,10 @@ export const ChatWidget = (props) => {
               onClick={
                 screen !== tokens.screens.welcome
                   ? (e) => {
-                      setScreen(tokens.screens.settings);
+                      let nextScreen = tokens.screens.settings;
+                      if (screen === tokens.screens.settings)
+                        nextScreen = tokens.screens.chat;
+                      setScreen(nextScreen);
                     }
                   : null
               }
