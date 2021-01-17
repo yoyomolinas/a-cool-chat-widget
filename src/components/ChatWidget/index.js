@@ -5,6 +5,9 @@ import React, {
   createContext,
   useContext,
 } from "react";
+
+import Cookie from "js-cookie";
+
 import {
   Container,
   CollapsedChatContainer,
@@ -28,10 +31,17 @@ export const ChatWidget = (props) => {
     icon = "chat",
     iconcolor = "black",
   } = props;
-  const [collapsed, setCollapsed] = useState(false);
-  const [screen, setScreen] = useState(tokens.screens.chat); // TODO change to welcome
-  const [username, setUsername] = useState("test-123"); // TODO remave
-  const [avatar, setAvatar] = useState("/profiles/profiles-1.png"); // TODO remave
+
+  const [collapsed, setCollapsed] = useState(
+    Cookie.get("collapsed") === "false" ? false : true
+  );
+  const [username, setUsername] = useState(Cookie.get("username") || ""); // TODO remave
+  const [avatar, setAvatar] = useState(Cookie.get("avatar") || ""); // TODO remave
+  const [screen, setScreen] = useState(
+    username === "" || avatar === ""
+      ? tokens.screens.welcome
+      : tokens.screens.chat
+  );
   const [personTyping, setPersonTyping] = useState(null);
 
   const whoIsTyping = useRef([]);
@@ -148,11 +158,18 @@ export const ChatWidget = (props) => {
   };
 
   useEffect(() => {
+    // things to do when settings change
+
     pubnub.setState({
-      state: { username, id: userId, image: avatar },
+      state: { username, id: userId, image: avatar, collapsed },
       channels: [channel],
     });
-  }, [username, avatar, userId]);
+
+    // set cookie
+    Cookie.set("username", username, { expires: 7 });
+    Cookie.set("avatar", avatar, { expires: 7 });
+    Cookie.set("collapsed", collapsed, { expires: 7 });
+  }, [username, avatar, userId, collapsed]);
 
   return (
     <Context.Provider

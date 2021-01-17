@@ -9,14 +9,27 @@ import { v4 as uuid } from "uuid";
 
 import config from "./Config";
 
-const userId = uuid();
-const pubnub = new PubNub({
-  publishKey: config.pubnub.publishKey,
-  subscribeKey: config.pubnub.subscribeKey,
-  uuid: userId,
-  heartbeatInterval: 5,
-  presenceTimeout: 1,
-});
+import Cookie from "js-cookie";
+
+const setup = () => {
+  let userId = Cookie.get("id");
+  if (!userId) {
+    userId = uuid();
+  }
+  Cookie.set("id", userId, { expires: 7 });
+
+  const pubnub = new PubNub({
+    publishKey: config.pubnub.publishKey,
+    subscribeKey: config.pubnub.subscribeKey,
+    uuid: userId,
+    heartbeatInterval: 5,
+    presenceTimeout: 20,
+  });
+
+  return { pubnub, userId };
+};
+
+const { userId, pubnub } = setup();
 
 export default () => {
   const iconcolor = document
