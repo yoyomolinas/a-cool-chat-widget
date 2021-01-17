@@ -162,8 +162,12 @@ export const ChatWidget = (props) => {
   };
 
   useEffect(() => {
-    if (!collapsed) setNotification(false);
+    setNotification(false);
   }, [collapsed]);
+
+  useEffect(() => {
+    setNotification(true);
+  }, [messages]);
 
   useEffect(() => {
     // things to do when settings change
