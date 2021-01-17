@@ -6,6 +6,7 @@ import { ReactComponent as Runner } from "./runner.svg";
 import { ReactComponent as Donate } from "./donate.svg";
 import { ReactComponent as Circle } from "./circle.svg";
 import { ReactComponent as Chat } from "./chat.svg";
+import { ReactComponent as ChatNotified } from "./chat-notified.svg";
 import { ReactComponent as CheckCircle } from "./check-circle.svg";
 
 export default {
@@ -18,4 +19,5 @@ export default {
   circle: Circle,
   "check-circle": CheckCircle,
   chat: Chat,
+  "chat-notified": ChatNotified,
 };

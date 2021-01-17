@@ -10,6 +10,7 @@ import Cookie from "js-cookie";
 
 import {
   Container,
+  FadeIn,
   CollapsedChatContainer,
   TopBar,
   Button,
@@ -25,12 +26,7 @@ import tokens from "./tokens";
 const Context = createContext();
 
 export const ChatWidget = (props) => {
-  const {
-    userId,
-    channel = "test-123",
-    icon = "chat",
-    iconcolor = "black",
-  } = props;
+  const { userId, channel = "test-123", iconcolor = "black" } = props;
 
   const [collapsed, setCollapsed] = useState(
     Cookie.get("collapsed") === "false" ? false : true
@@ -53,6 +49,8 @@ export const ChatWidget = (props) => {
   const [channels, setChannels] = useState([channel]);
   const [messages, addMessage] = useState([]);
   const [message, setMessage] = useState("");
+  const [notification, setNotification] = useState(false);
+  const [numOccupants, setNumOccupants] = useState(0);
 
   const handleMessage = (event) => {
     const msg = event.message;
@@ -102,6 +100,9 @@ export const ChatWidget = (props) => {
         includeState: true,
       })
       .then((response) => {
+        setNumOccupants(response.channels[channel].occupants.length);
+        console.log(response.channels[channel].occupants.length);
+
         whoIsHere.current = response.channels[channel].occupants
           .map((o) => o.state)
           .filter((o) => o !== undefined);
@@ -126,11 +127,15 @@ export const ChatWidget = (props) => {
     );
 
     pubnub.addListener({ message: handleMessage });
-    pubnub.addListener({ signal: handleSignal });
-    pubnub.addListener({ presence: handlePresence });
     pubnub.subscribe({ channels, withPresence: true });
+    pubnub.addListener({ presence: handlePresence });
+    handlePresence({}); // call once to initiate presence
+    pubnub.addListener({ signal: handleSignal });
   }, [pubnub, channels]);
-
+  useEffect(() => {
+    if (!collapsed) setNotification(false);
+    else setNotification(true);
+  }, [messages]);
   const sendMessage = ({ message = {}, callback = () => {} }) => {
     if (message) {
       pubnub.publish({ channel: channels[0], message }).then(() => {
@@ -207,9 +212,16 @@ export const ChatWidget = (props) => {
             >
               <Icon name="runner" palette="white" />
             </Button>
-            <Text size="small" weight="bold">
-              welcome!
-            </Text>
+
+            <FadeIn>
+              <Text size="small" weight="bold">
+                {numOccupants > 1
+                  ? `${numOccupants} people here!`
+                  : numOccupants == 1
+                  ? "only you here!"
+                  : "welcome!"}
+              </Text>
+            </FadeIn>
             <Button
               title="preferences"
               palette="none"
@@ -246,7 +258,12 @@ export const ChatWidget = (props) => {
               setCollapsed(false);
             }}
           >
-            <Icon name={icon} scale="sc+2" palette={iconcolor} />
+            {!notification && (
+              <Icon name={"chat"} scale="sc+2" palette={iconcolor} />
+            )}
+            {notification && (
+              <Icon name={"chat-notified"} scale="sc+2" palette={iconcolor} />
+            )}
           </Button>
         </CollapsedChatContainer>
       )}

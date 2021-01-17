@@ -23,7 +23,7 @@ const setup = () => {
     subscribeKey: config.pubnub.subscribeKey,
     uuid: userId,
     heartbeatInterval: 5,
-    presenceTimeout: 20,
+    presenceTimeout: 1,
   });
 
   return { pubnub, userId };
@@ -31,7 +31,7 @@ const setup = () => {
 
 const { userId, pubnub } = setup();
 
-export default () => {
+const App = () => {
   const iconcolor = document
     .getElementById(config.elementId)
     .getAttribute("$iconcolor");
@@ -43,12 +43,8 @@ export default () => {
   return (
     <PubNubProvider client={pubnub}>
       <GlobalStyle />
-      <ChatWidget
-        userId={userId}
-        icon={config.icon}
-        iconcolor={iconcolor}
-        channel={channel}
-      />
+      <ChatWidget userId={userId} iconcolor={iconcolor} channel={channel} />
     </PubNubProvider>
   );
 };
+export default App;
