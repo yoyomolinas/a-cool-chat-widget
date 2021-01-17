@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.8c9d8f59.chunk.js",
-    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.8c9d8f59.chunk.js.map",
+    "main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.a7f53053.chunk.js",
+    "main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/main.a7f53053.chunk.js.map",
     "runtime-main.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js",
     "runtime-main.js.map": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/runtime-main.b4c2b0f7.js.map",
     "static/js/2.bcd7f3e2.chunk.js": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.bcd7f3e2.chunk.js",
@@ -9,7 +9,7 @@
     "index.html": "https://yoyomolinas.github.io/modern-chat-widget/public/index.html",
     "static/js/2.bcd7f3e2.chunk.js.LICENSE.txt": "https://yoyomolinas.github.io/modern-chat-widget/public/static/js/2.bcd7f3e2.chunk.js.LICENSE.txt",
     "static/media/arrow-left.75a763f0.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/arrow-left.75a763f0.svg",
-    "static/media/chat-notified.d6bedd35.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat-notified.d6bedd35.svg",
+    "static/media/chat-notified.08ece34e.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat-notified.08ece34e.svg",
     "static/media/chat.85c584de.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/chat.85c584de.svg",
     "static/media/check-circle.9d588475.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/check-circle.9d588475.svg",
     "static/media/circle.8be3b3d5.svg": "https://yoyomolinas.github.io/modern-chat-widget/public/static/media/circle.8be3b3d5.svg",
@@ -22,6 +22,6 @@
   "entrypoints": [
     "static/js/runtime-main.b4c2b0f7.js",
     "static/js/2.bcd7f3e2.chunk.js",
-    "static/js/main.8c9d8f59.chunk.js"
+    "static/js/main.a7f53053.chunk.js"
   ]
 }
