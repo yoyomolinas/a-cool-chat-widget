@@ -1,0 +1,29 @@
+function 2xPath {
+    echo build/static/js/2*.chunk.js  
+}
+function mainPath {
+    echo build/static/js/main*.chunk.js  
+}
+function runtimePath {
+    echo build/static/js/runtime*.js  
+}
+
+export PUBLIC_URL="https://yoyomolinas.github.io/modern-chat-widget/public"
+
+yarn build
+
+export RUNTIME=$(runtimePath)
+export XX=$(2xPath)
+export MAIN=$(mainPath)
+export EMBED_SCRIPT="
+<div id='the-best-chat-widget-in-the-world $iconcolor='black' $channel='hello-world-8'></div>
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${RUNTIME}'></script>
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${XX}'></script>
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${MAIN}'></script>"
+
+git add .
+git commit -m 'deploy'
+git push 
+
+echo "Embed the following script:"
+echo $EMBED_SCRIPT
