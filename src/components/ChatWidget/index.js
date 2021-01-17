@@ -117,7 +117,7 @@ export const ChatWidget = (props) => {
       {
         channels,
         end: 0,
-        count: 10,
+        count: 100,
       },
       (status, response) => {
         if (!response) return;

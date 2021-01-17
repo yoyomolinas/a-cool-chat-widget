@@ -30,7 +30,7 @@ const Chat = (props) => {
 
   useEffect(() => {
     scrollToEnd();
-  }, []);
+  }, [chatWidget.messages]);
 
   return (
     <>
@@ -88,9 +88,6 @@ const Chat = (props) => {
                 },
                 text: val,
                 createdAt: new Date(),
-              },
-              callback: () => {
-                scrollToEnd();
               },
             });
           }}
