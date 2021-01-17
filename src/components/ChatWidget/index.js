@@ -55,6 +55,7 @@ export const ChatWidget = (props) => {
   const handleMessage = (event) => {
     const msg = event.message;
     addMessage((messages) => [...messages, msg]);
+    if (collapsed) setNotification(true);
   };
   const handleSignal = (event) => {
     // return if typing user is unknown
@@ -132,10 +133,7 @@ export const ChatWidget = (props) => {
     handlePresence({}); // call once to initiate presence
     pubnub.addListener({ signal: handleSignal });
   }, [pubnub, channels]);
-  useEffect(() => {
-    if (!collapsed) setNotification(false);
-    else setNotification(true);
-  }, [messages]);
+
   const sendMessage = ({ message = {}, callback = () => {} }) => {
     if (message) {
       pubnub.publish({ channel: channels[0], message }).then(() => {
@@ -162,6 +160,10 @@ export const ChatWidget = (props) => {
     });
     return name !== "" && (name === username || i === -1);
   };
+
+  useEffect(() => {
+    if (!collapsed) setNotification(false);
+  }, [collapsed]);
 
   useEffect(() => {
     // things to do when settings change
