@@ -12,6 +12,8 @@ import {
   TextInput,
   Separator,
   Row,
+  FloatingDateBox,
+  FloatingDateBoxWrapper,
 } from "./styled";
 
 import { useChatWidget } from "./index";
@@ -38,6 +40,7 @@ const Chat = (props) => {
       <ChatContainer ref={listRef}>
         <ChatContainerChild>
           <Separator spacing="sp+1" />
+
           {chatWidget.messages.map((m, i) => {
             let onlybody = false;
             let noseparator = false;
@@ -93,11 +96,23 @@ const Chat = (props) => {
           }}
           action={{
             icon: "donate",
-            title: "donate",
+            title: "love",
             palette: "white",
             activepalette: "grey",
             onClick: (e) => {
-              console.log("Donate!");
+              // publish ❤
+              chatWidget.sendMessage({
+                message: {
+                  type: "text",
+                  sender: {
+                    id: chatWidget.userId,
+                    name: chatWidget.username,
+                    image: chatWidget.avatar,
+                  },
+                  text: Math.random() > 0.5 ? "❤" : "❣",
+                  createdAt: new Date(),
+                },
+              });
             },
           }}
         />

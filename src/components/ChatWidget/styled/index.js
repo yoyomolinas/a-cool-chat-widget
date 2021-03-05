@@ -82,11 +82,11 @@ export const Container = styled.div`
   align-items: center;
 
   // color
-  background-image: linear-gradient(rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 1)),
-    url("${process.env.PUBLIC_URL}/backgrounds/bg-2.png");
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  // background: ${(props) => tokens.palette[props.palette]};
+  // background-image: linear-gradient(rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 1)),
+  //   url("${process.env.PUBLIC_URL}/backgrounds/bg-2.png");
+  // background-repeat: no-repeat;
+  // background-size: 200% 200%;
+  background: ${(props) => tokens.palette[props.palette]};
   box-shadow: 0px 0px 12px 6px rgba(0, 0, 0, 0.4);
 `;
 
@@ -525,6 +525,7 @@ MessageText.defaultProps = {
 
 const MessageTime = styled(Text)`
   opacity: 50%;
+  text-align: right;
 `;
 
 MessageTime.defaultProps = {
@@ -571,8 +572,4 @@ export const TextMessage = (props) => {
       </MessageBodyContainer>
     </MessageContainer>
   );
-};
-
-export const ImageMessage = (props) => {
-  const { sender, text, image, onlybody } = props;
 };
