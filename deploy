@@ -8,7 +8,7 @@ function runtimePath {
     echo build/static/js/runtime*.js  
 }
 
-export PUBLIC_URL="https://yoyomolinas.github.io/modern-chat-widget/public"
+export PUBLIC_URL="https://yoyomolinas.github.io/a-cool-chat-widget/public"
 
 yarn build
 
