@@ -17,9 +17,9 @@ export XX=$(2xPath)
 export MAIN=$(mainPath)
 export EMBED_SCRIPT="
 <div id='the-best-chat-widget-in-the-world $iconcolor='black' $channel='hello-world-8'></div>
-<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${RUNTIME}'></script>
-<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${XX}'></script>
-<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/modern-chat-widget/${MAIN}'></script>"
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/a-cool-chat-widget/${RUNTIME}'></script>
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/a-cool-chat-widget/${XX}'></script>
+<script src='https://cdn.jsdelivr.net/gh/yoyomolinas/a-cool-chat-widget/${MAIN}'></script>"
 
 git add .
 git commit -m 'deploy'
