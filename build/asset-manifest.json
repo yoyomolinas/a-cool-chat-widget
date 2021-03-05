@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/main.cd4ee28c.chunk.js",
-    "main.js.map": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/main.cd4ee28c.chunk.js.map",
+    "main.js": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/main.b9d270fe.chunk.js",
+    "main.js.map": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/main.b9d270fe.chunk.js.map",
     "runtime-main.js": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/runtime-main.6546cebe.js",
     "runtime-main.js.map": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/runtime-main.6546cebe.js.map",
     "static/js/2.bcded5b3.chunk.js": "https://yoyomolinas.github.io/a-cool-chat-widget/public/static/js/2.bcded5b3.chunk.js",
@@ -22,6 +22,6 @@
   "entrypoints": [
     "static/js/runtime-main.6546cebe.js",
     "static/js/2.bcded5b3.chunk.js",
-    "static/js/main.cd4ee28c.chunk.js"
+    "static/js/main.b9d270fe.chunk.js"
   ]
 }
